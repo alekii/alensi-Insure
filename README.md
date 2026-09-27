@@ -1,4 +1,4 @@
-# Insurance Management Platform
+# Insurance Policy and Claims Management System
 
 A policy and claims management system for the insurance lifecycle. The project focuses on managing customers, policies, coverage, premiums, payments, and claims rather than building every function of an insurance company.
 
