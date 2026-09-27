@@ -1,10 +1,67 @@
-# Insurance Policy and Claims Management System
+# Intelligent Insurance Policy & Claims Management System
 
-A policy and claims management system for the insurance lifecycle. The project focuses on managing customers, policies, coverage, premiums, payments, and claims rather than building every function of an insurance company.
+Alensi Insure is a backend system for managing the insurance policy and claims lifecycle, with an intelligence layer designed to assist underwriting, claims assessment, anomaly detection, document processing, and operational decision-making.
 
-## Scope
+The system focuses on helping insurance teams make faster, more consistent, and better-informed decisions while keeping humans in control of consequential decisions.
 
-The intended domain flow is:
+## What Makes It Intelligent
+
+Alensi Insure combines deterministic insurance rules with data-driven intelligence to assist teams throughout the policy and claims lifecycle.
+
+### Intelligent Underwriting
+
+Analyze customer, policy, coverage, and historical data to:
+
+* Identify missing or inconsistent information
+* Assess risk factors
+* Recommend risk categories
+* Flag applications requiring manual review
+* Provide explainable recommendations
+
+### Intelligent Claims Triage
+
+Claims are automatically evaluated against policy coverage, claim information, supporting evidence, and configurable business rules.
+
+The system can:
+
+* Validate policy coverage
+* Identify missing information
+* Prioritize claims
+* Detect anomalies
+* Recommend fast-track or manual review
+* Provide an explainable assessment
+
+### Anomaly & Fraud Detection
+
+Identify potentially suspicious patterns across claims and policies, including:
+
+* Duplicate claims
+* Unusual claim frequency
+* Abnormal claim amounts
+* Suspicious timing
+* Inconsistent customer or policy information
+* Related-entity patterns
+
+The system flags cases for investigation rather than making an automatic fraud determination.
+
+### Intelligent Document Processing
+
+Extract and structure relevant information from claim documents and supporting evidence, reducing manual data entry and enabling automated validation.
+
+### Claims Intelligence
+
+Provide adjusters with an intelligent summary of:
+
+* Customer and policy information
+* Coverage applicable to the claim
+* Claim history
+* Submitted evidence
+* Validation results
+* Detected anomalies
+* Outstanding information
+* Recommended next actions
+
+## Core Domain
 
 ```text
 Customer
@@ -21,26 +78,69 @@ Claim
    ↓
 Assessment
    ↓
+Intelligence Layer
+   ↓
 Approval / Rejection
    ↓
 Settlement
 ```
 
-A customer holds a policy with configured coverage. The coverage informs the premium, which is collected through payments. If an insured event occurs, a claim is submitted, assessed, and either approved or rejected. Approved claims proceed to settlement.
+## Intelligence Architecture
 
-## Planned capabilities
+```text
+                    Insurance Platform
+                           |
+             ┌─────────────┴─────────────┐
+             |                           |
+        Policy Engine              Claims Engine
+             |                           |
+             └─────────────┬─────────────┘
+                           |
+                  Intelligence Layer
+                           |
+       ┌───────────┬───────┼────────┬───────────┐
+       |           |       |        |           |
+   Risk Scoring  Rules  Anomaly  Document   Summarization
+                       Detection  Processing
+       |           |       |        |           |
+       └───────────┴───────┴────────┴───────────┘
+                           |
+                    Decision Support
+                           |
+                 Human Review / Action
+```
 
-- **Customer management:** Maintain customer records and their associated policies and claims.
-- **Policy lifecycle:** Create, manage, and renew policies.
-- **Product and coverage configuration:** Define insurance products and the coverage available under each policy.
-- **Premium calculation:** Determine premiums from the selected policy and coverage.
-- **Payments:** Track premium payments and claim settlements.
-- **Claims management:** Submit, track, and assess claims.
-- **Approval workflows:** Review claims and record approval or rejection decisions.
-- **Documents:** Associate relevant documents with customers, policies, and claims.
-- **Notifications:** Keep participants informed about important lifecycle events.
-- **Audit trails:** Record significant changes and decisions for traceability.
+## Design Principles
 
-## Project status
+* Human-in-the-loop decision making
+* Explainable recommendations
+* Deterministic business rules for critical decisions
+* Auditable decisions and model outputs
+* Separation of domain logic from intelligence services
+* Secure handling of sensitive insurance data
+* Event-driven processing where appropriate
+* Configurable thresholds and review policies
 
-This README describes the intended scope and domain model; it does not imply that these capabilities have already been implemented.
+## Project Scope
+
+The platform covers:
+
+* Customer management
+* Insurance products
+* Policy lifecycle
+* Coverage configuration
+* Premium calculation
+* Premium payments
+* Claims management
+* Claims assessment
+* Intelligent claims triage
+* Risk assessment
+* Anomaly detection
+* Document processing
+* Approval workflows
+* Claim settlement
+* Notifications
+* Audit trails
+* Intelligence and decision-support services
+
+The project is designed as a reference implementation exploring how modern backend architecture, rules engines, data processing, and AI-assisted decision support can be combined in an insurance domain.
